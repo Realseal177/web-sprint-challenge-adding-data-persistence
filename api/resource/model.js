@@ -6,6 +6,12 @@ async function findAll() {
     return resources;
   }
 
+async function post(resource) {
+    const [resource_id] = await db('resources').insert(resource);
+    return findAll().where({ resource_id }).first();
+}
+
 module.exports = {
     findAll,
+    post
 }

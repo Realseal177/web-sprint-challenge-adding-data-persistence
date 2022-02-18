@@ -46,8 +46,8 @@ exports.up = async function(knex) {
   
   exports.down = function(knex) {
     return knex.schema
-      .createTable('project_resources')
-      .createTable('tasks')
-      .createTable('resources')
-      .createTable('projects')
+      .dropTableIfExists('project_resources')
+      .dropTableIfExists('tasks')
+      .dropTableIfExists('resources')
+      .dropTableIfExists('projects')
   };
